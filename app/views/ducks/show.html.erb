@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @duck.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @duck.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @duck.price %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @duck.slug %>
+</p>
+
+<p>
+  <strong>Main image:</strong>
+  <%= @duck.main_image %>
+</p>
+
+<p>
+  <strong>Paypal email:</strong>
+  <%= @duck.paypal_email %>
+</p>
+
+<%= link_to 'Edit', edit_duck_path(@duck) %> |
+<%= link_to 'Back', ducks_path %>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ducks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Slug</th>
+      <th>Main image</th>
+      <th>Paypal email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ducks.each do |duck| %>
+      <tr>
+        <td><%= duck.name %></td>
+        <td><%= duck.description %></td>
+        <td><%= duck.price %></td>
+        <td><%= duck.slug %></td>
+        <td><%= duck.main_image %></td>
+        <td><%= duck.paypal_email %></td>
+        <td><%= link_to 'Show', duck %></td>
+        <td><%= link_to 'Edit', edit_duck_path(duck) %></td>
+        <td><%= link_to 'Destroy', duck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Duck', new_duck_path %>
