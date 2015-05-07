@@ -19,7 +19,7 @@ class Duck < ActiveRecord::Base
       :invoice => to_param,
       :amount => price,
       :quantity => 1,
-      :item_name => "Derbey Ducks for #{name}"
+      :item_name => "Derby Ducks for #{name}"
     }
 
     %w{a b}.each_with_index do |item, index|

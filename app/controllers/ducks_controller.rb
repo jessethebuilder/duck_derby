@@ -1,8 +1,10 @@
 class DucksController < ApplicationController
-  before_action :set_duck, only: [:show, :edit, :update, :destroy]
+  before_action :set_duck, only: [:show, :edit, :update, :destroy, :payment_success]
 
-  # GET /ducks
-  # GET /ducks.json
+  def payment_success
+
+  end
+
   def index
     @ducks = Duck.all
   end
