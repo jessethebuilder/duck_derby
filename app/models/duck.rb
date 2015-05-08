@@ -1,5 +1,5 @@
 class Duck < ActiveRecord::Base
-  validates :pay_pal_email, :presence => true
+  validates :paypal_email, :presence => true
   validates :price, presence: true, :numericality => {:greater_than_or_equal_to => 0}
 
   use_farm_slugs
@@ -21,13 +21,6 @@ class Duck < ActiveRecord::Base
       :quantity => 1,
       :item_name => "Derby Ducks for #{name}"
     }
-
-    %w{a b}.each_with_index do |item, index|
-      values.merge!({
-                      "amount_#{index + 1}" => 0.01,
-                      "item_name_#{index + 1}" => item
-                    })
-    end
 
     "https://www.paypal.com/cgi-bin/webscr?" + values.map{ |k, v| "#{k}=#{v}"}.join('&')
   end

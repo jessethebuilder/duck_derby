@@ -23,13 +23,9 @@ RSpec.describe DucksController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Duck. As you add validations to Duck, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) { attributes_for(:duck) }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes){ {:name => ''} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -102,15 +98,13 @@ RSpec.describe DucksController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) { attributes_for(:duck, :name => 'A New Name') }
 
       it "updates the requested duck" do
         duck = Duck.create! valid_attributes
         put :update, {:id => duck.to_param, :duck => new_attributes}, valid_session
         duck.reload
-        skip("Add assertions for updated state")
+        duck.name.should == 'A New Name'
       end
 
       it "assigns the requested duck as @duck" do
